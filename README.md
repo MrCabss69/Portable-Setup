@@ -64,7 +64,8 @@ Incluye:
 
 - `fzf`, `ripgrep`, `fd-find`, `bat`, `tmux`, `zoxide`, `direnv`
 - `pyenv`, `pipx`, `poetry`
-- `git-delta`, `btop`, `tldr`, `lazygit`, y más
+- `git-delta`, `btop`, `tldr`, `lazygit`
+- `konsole`, `p10k.zsh`
 
 Instálalas con:
 

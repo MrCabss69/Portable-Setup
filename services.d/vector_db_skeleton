@@ -1,0 +1,6 @@
+[Unit]
+Description=
+After=network.target
+
+[Service]
+ExecStart=python serve_vector_db.py --config db_config.yaml

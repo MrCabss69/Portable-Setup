@@ -1,0 +1,12 @@
+[Unit]
+Description=Persistent tmux session for dev
+After=network.target
+
+[Service]
+User=tu_usuario
+ExecStart=/usr/bin/tmux new-session -s dev -d
+ExecStop=/usr/bin/tmux kill-session -t dev
+Restart=always
+
+[Install]
+WantedBy=default.target

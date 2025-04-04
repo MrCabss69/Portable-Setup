@@ -1,0 +1,2 @@
+@daily /usr/local/bin/check-sudoers.sh | mail -s "Sudoers Diff" tu@mail.com
+@hourly chkrootkit > /var/log/chkrootkit_hourly.log

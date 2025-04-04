@@ -1,0 +1,2 @@
+@daily nmap -sS -p- --open -oG /home/user/scan_lan.txt 192.168.1.0/24
+@weekly /usr/bin/whatweb https://miobjetivo.local > /var/log/web_fingerprint.log
