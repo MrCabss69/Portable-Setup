@@ -1,0 +1,1 @@
+# Variables o alias privados # alias deploy='rsync -av --delete ./ server:/app/'

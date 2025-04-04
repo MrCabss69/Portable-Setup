@@ -1,0 +1,30 @@
+[user]
+    name = Tu Nombre
+    email = tu@email.com
+
+[core]
+    editor = nvim
+    autocrlf = input
+    pager = less -FRX
+
+[color]
+    ui = auto
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    lg = log --oneline --graph --all --decorate
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    amend = commit --amend
+
+[push]
+    default = simple
+
+[diff]
+    tool = vimdiff
+
+[merge]
+    tool = vimdiff
