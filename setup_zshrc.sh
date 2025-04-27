@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ZSHRC_D="$REPO_DIR/.zshrc.d"
+REPO_ZSHRC_D="$REPO_DIR/config/zshrc.d"
 TARGET_ZSHRC="$HOME/.zshrc"
 TARGET_ZSHRC_D="$HOME/.zshrc.d"
 BACKUP="$HOME/.zshrc.backup.$(date +%s)"
@@ -25,8 +25,13 @@ parse_args() {
 }
 
 backup_zshrc() {
-  echo "📦 Backup de .zshrc actual → $BACKUP"
-  cp "$TARGET_ZSHRC" "$BACKUP"
+  if [ -f "$TARGET_ZSHRC" ]; then
+    echo "📦 Backup de .zshrc actual → $BACKUP"
+    cp "$TARGET_ZSHRC" "$BACKUP"
+  else
+    echo "⚠️ El archivo $TARGET_ZSHRC no existe. Se creará uno nuevo."
+    touch "$TARGET_ZSHRC"
+  fi
 }
 
 ensure_loader_in_zshrc() {

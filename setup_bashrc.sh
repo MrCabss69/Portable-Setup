@@ -4,7 +4,7 @@ set -euo pipefail
 
 # === CONFIG ===
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_BASHRC_D="$REPO_DIR/.bashrc.d"
+REPO_BASHRC_D="$REPO_DIR/config/bashrc.d"
 TARGET_BASHRC_D="$HOME/.bashrc.d"
 BASHRC="$HOME/.bashrc"
 BASHRC_BACKUP="$HOME/.bashrc.backup.$(date +%s)"
@@ -28,8 +28,13 @@ parse_args() {
 }
 
 backup_bashrc() {
-  echo "📦 Haciendo backup de .bashrc actual → $BASHRC_BACKUP"
-  cp "$BASHRC" "$BASHRC_BACKUP"
+  if [ -f "$BASHRC" ]; then
+    echo "📦 Haciendo backup de .bashrc actual → $BASHRC_BACKUP"
+    cp "$BASHRC" "$BASHRC_BACKUP"
+  else
+    echo "⚠️ El archivo $BASHRC no existe. Se creará uno nuevo."
+    touch "$BASHRC"
+  fi
 }
 
 ensure_loader_in_bashrc() {

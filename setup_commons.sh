@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_COMMON_DIR="$REPO_DIR/.commonrc.d"
+REPO_COMMON_DIR="$REPO_DIR/config/commonrc.d"
 TARGET_COMMON_DIR="$HOME/.commonrc.d"
 FORCE=false
 
@@ -28,11 +28,21 @@ parse_args() {
 }
 
 backup_files() {
-  echo "📦 Backup de .bashrc → $BASHRC_BACKUP"
-  cp "$BASHRC" "$BASHRC_BACKUP"
+  if [ -f "$BASHRC" ]; then
+    echo "📦 Backup de .bashrc → $BASHRC_BACKUP"
+    cp "$BASHRC" "$BASHRC_BACKUP"
+  else
+    echo "⚠️ El archivo $BASHRC no existe. Se creará uno nuevo."
+    touch "$BASHRC"
+  fi
 
-  echo "📦 Backup de .zshrc → $ZSHRC_BACKUP"
-  cp "$ZSHRC" "$ZSHRC_BACKUP"
+  if [ -f "$ZSHRC" ]; then
+    echo "📦 Backup de .zshrc → $ZSHRC_BACKUP"
+    cp "$ZSHRC" "$ZSHRC_BACKUP"
+  else
+    echo "⚠️ El archivo $ZSHRC no existe. Se creará uno nuevo."
+    touch "$ZSHRC"
+  fi
 }
 
 ensure_loader_in_file() {

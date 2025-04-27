@@ -1,6 +1,16 @@
 [Unit]
-Description=
+Description=Vector Database Service (Ej: ChromaDB/FAISS)
 After=network.target
+Documentation=https://github.com/tu-usuario/tu-proyecto
 
 [Service]
-ExecStart=python serve_vector_db.py --config db_config.yaml
+Type=simple
+User=%u
+WorkingDirectory=%h/vector-db
+ExecStart=%h/.local/bin/python -m serve_vector_db --port 8000 --host 127.0.0.1
+Restart=on-failure
+RestartSec=5
+Environment=VECTOR_DB_ENV=production
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,33 @@
+# Ejemplo de configuración Powerlevel10k
+# Copia este archivo a tu directorio home como ~/.p10k.zsh
+# o ejecuta `p10k configure` para crear una configuración personalizada
+
+# Este es un ejemplo simplificado. La configuración completa generada por
+# p10k configure es mucho más extensa y personalizada.
+
+# Elementos del prompt izquierdo
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  dir                     # directorio actual
+  vcs                     # estado de git
+)
+
+# Elementos del prompt derecho
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  status                  # código de salida del último comando
+  command_execution_time  # duración del último comando
+  background_jobs         # trabajos en segundo plano
+  pyenv                   # entorno python
+  context                 # usuario@hostname
+)
+
+# Modo Powerline
+POWERLEVEL9K_MODE=powerline
+
+# Añadir línea nueva antes de cada prompt
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+# Puedes configurar muchas más opciones, consulta la documentación
+# o ejecuta p10k configure para una experiencia guiada
+
+# Para aplicar cambios después de editar este archivo, ejecuta:
+# source ~/.p10k.zsh 

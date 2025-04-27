@@ -1,8 +1,25 @@
 # En dotfiles/.bashrc.d/.gitignore
-99-local.bash
-99-local.zsh
-# .gitignore
-commonrc.d/99-local.sh
+# Archivos locales (config modular)
+config/bashrc.d/99-local.bash
+config/zshrc.d/99-local.zsh
+config/commonrc.d/99-local.sh
+
+# Archivos de configuración personal
+.bashrc
+.bash_profile
+.zshrc
+.p10k.zsh
+.gitconfig
+
+# Cron
+.cron.d/*
+
+# Services
+.services.d/*
+
+# Trunk
+.trunk/
+
 
 
 # Byte-compiled / optimized / DLL files
