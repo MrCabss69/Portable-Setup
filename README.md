@@ -96,12 +96,35 @@ sudo apt update && sudo apt install util-linux git bat fzf ripgrep fd-find tmux 
 sudo pacman -Syu util-linux git bat fzf ripgrep fd tmux btop tldr git-delta lazygit zoxide
 ```
 
-Consulta `linux-docs/ADV_TRICKS.md` para instalación avanzada de herramientas como `pyenv`, `pipx`, `poetry`, `direnv`, entre otras.
-
-4. Abre un nuevo terminal para que los cambios tengan efecto.
+4. Reinicia / abre nuevo terminal para que los cambios tengan efecto.
 
 ---
 
+
+## Testeo básico
+
+Abre un nuevo terminal y comprueba:
+
+```bash
+# Verificar alias cargados
+alias | grep '^cat='
+
+# Verificar funciones
+type cl
+type cursor
+
+# Verificar variables de entorno
+echo $PYENV_ROOT
+```
+
+Si algo falla, puedes agregar líneas de debug como:
+
+```bash
+echo "Cargando $file"
+```
+en `load_common.sh` o en los scripts de setup.
+
+---
 
 
 ## Configuración personal (`99-local.*`)
@@ -119,7 +142,7 @@ cp config/commonrc.d/99-local.example.sh config/commonrc.d/99-local.sh
 nano config/commonrc.d/99-local.sh
 ```
 
-Recuerda que los archivos `99-local.*` están ignorados en el `.gitignore` para evitar subir datos sensibles a GitHub.
+Recuerda que los archivos `99-local.*` **están ignorados** en el `.gitignore` para evitar subir datos sensibles a Git.
 
 ---
 
@@ -166,30 +189,6 @@ journalctl --user -u mi-servicio.service
 
 ---
 
-## Testeo básico
-
-Abre un nuevo terminal y comprueba:
-
-```bash
-# Verificar alias cargados
-alias | grep '^cat='
-
-# Verificar funciones
-type cl
-type cursor
-
-# Verificar variables de entorno
-echo $PYENV_ROOT
-```
-
-Si algo falla, puedes agregar líneas de debug como:
-
-```bash
-echo "Cargando $file"
-```
-en `load_common.sh` o en los scripts de setup.
-
----
 
 ## Recomendaciones avanzadas
 
@@ -209,15 +208,3 @@ en `load_common.sh` o en los scripts de setup.
 - Ejemplos de configuración avanzada de `neovim` (`lazy.nvim`).
 - Instaladores tipo `Makefile` o `justfile`.
 - Expansión a configuraciones de entornos de ciencia de datos y DevOps.
-
----
-
-## Licencia
-
-Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-
----
-
-## Filosofía
-
-*"No configures tu entorno para lo que haces hoy, configúralo para lo que quieres ser capaz de hacer mañana."*
