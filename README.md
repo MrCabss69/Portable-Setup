@@ -1,62 +1,7 @@
 # ⏳⚙️ Portable-Setup
 
-Entorno de configuración portable para Bash, Zsh y desarrollo avanzado en Linux.  
-Diseñado para desarrolladores y usuarios avanzados que buscan control, reproducibilidad y consistencia en su terminal.
+Entorno de configuración portable para Bash, Zsh y desarrollo avanzado en Linux.  Estructura modular, escalable y portable.
 
----
-
-## Características
-
-- **Modular:** Configuración dividida en pequeños archivos lógicos (`paths`, `aliases`, `functions`, `envs`).
-- **Portable:** Diseñado para funcionar en diferentes distribuciones de Linux con mínimos ajustes.
-- **Reproducible:** Fácil de clonar y desplegar en nuevas máquinas.
-- **Separación de shells:** Configuraciones específicas para Bash (`config/bashrc.d/`) y Zsh (`config/zshrc.d/`), con una base común (`config/commonrc.d/`).
-- **Configuración local segura:** Espacio para secretos y ajustes personales (`99-local.*`) que no se versionan en Git.
-- **Instalación segura:** Scripts de setup que hacen backup automático de tus archivos `.bashrc` y `.zshrc`.
-- **Extensible:** Directorios preparados para tareas programadas (`cron.d/`) y servicios de sistema (`services.d/`).
-
----
-
-## Instalación rápida
-
-1. Clona el repositorio:
-
-```bash
-git clone https://github.com/MrCabss69/Portable-Setup.git
-cd Portable-Setup
-```
-
-2. Ejecuta los scripts de setup según el shell que uses:
-
-```bash
-./setup_commons.sh   # Configuración común
-./setup_bashrc.sh    # Para Bash
-./setup_zshrc.sh     # Para Zsh
-```
-
-(Opcional: agrega `--force` si deseas sobrescribir enlaces existentes.)
-
-3. Instala dependencias esenciales según tu distribución:
-
-**Fedora / RHEL:**
-```bash
-sudo dnf install util-linux-user git bat fzf ripgrep fd-find tmux btop tldr git-delta lazygit zoxide
-```
-
-**Debian / Ubuntu:**
-```bash
-sudo apt update && sudo apt install util-linux git bat fzf ripgrep fd-find tmux btop tldr git-delta lazygit zoxide
-```
-*(Nota: en Debian/Ubuntu `bat` puede estar disponible como `batcat`.)*
-
-**Arch Linux:**
-```bash
-sudo pacman -Syu util-linux git bat fzf ripgrep fd tmux btop tldr git-delta lazygit zoxide
-```
-
-Consulta `linux-docs/ADV_TRICKS.md` para instalación avanzada de herramientas como `pyenv`, `pipx`, `poetry`, `direnv`, entre otras.
-
-4. Abre un nuevo terminal para que los cambios tengan efecto.
 
 ---
 
@@ -99,6 +44,65 @@ Al iniciar sesión en tu terminal:
 - `99-local.zsh` : Personalizaciones privadas para Zsh.
 
 ---
+
+## Características
+
+- **Modular:** Configuración dividida en pequeños archivos lógicos (`paths`, `aliases`, `functions`, `envs`).
+
+- **Separación de shells:** Configuraciones específicas para Bash (`config/bashrc.d/`) y Zsh (`config/zshrc.d/`), con una base común (`config/commonrc.d/`).
+
+- **Configuración local segura:** Espacio para secretos y ajustes personales (`99-local.*`) que no se versionan en Git.
+
+- **Instalación segura:** Scripts de setup con backup automático de tus archivos `.bashrc` y `.zshrc`.
+
+- **Portable:** Diseñado para funcionar en diferentes distribuciones de Linux con mínimos ajustes.
+
+- **Reproducible:** Fácil de clonar y desplegar en nuevas máquinas.
+
+---
+
+## Instalación rápida
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/MrCabss69/Portable-Setup.git
+cd Portable-Setup
+```
+
+2. Ejecuta los scripts de setup según el shell que uses:
+
+```bash
+./setup_commons.sh   # Configuración común
+./setup_bashrc.sh    # Para Bash
+./setup_zshrc.sh     # Para Zsh
+```
+
+3. Instala dependencias 
+
+**Fedora / RHEL:**
+```bash
+sudo dnf install util-linux-user git bat fzf ripgrep fd-find tmux btop tldr git-delta lazygit zoxide
+```
+
+**Debian / Ubuntu:**
+```bash
+sudo apt update && sudo apt install util-linux git bat fzf ripgrep fd-find tmux btop tldr git-delta lazygit zoxide
+```
+*(Nota: en Debian/Ubuntu `bat` puede estar disponible como `batcat`.)*
+
+**Arch Linux:**
+```bash
+sudo pacman -Syu util-linux git bat fzf ripgrep fd tmux btop tldr git-delta lazygit zoxide
+```
+
+Consulta `linux-docs/ADV_TRICKS.md` para instalación avanzada de herramientas como `pyenv`, `pipx`, `poetry`, `direnv`, entre otras.
+
+4. Abre un nuevo terminal para que los cambios tengan efecto.
+
+---
+
+
 
 ## Configuración personal (`99-local.*`)
 
