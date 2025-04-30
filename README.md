@@ -45,22 +45,6 @@ Al iniciar sesión en tu terminal:
 
 ---
 
-## Características
-
-- **Modular:** Configuración dividida en pequeños archivos lógicos (`paths`, `aliases`, `functions`, `envs`).
-
-- **Separación de shells:** Configuraciones específicas para Bash (`config/bashrc.d/`) y Zsh (`config/zshrc.d/`), con una base común (`config/commonrc.d/`).
-
-- **Configuración local segura:** Espacio para secretos y ajustes personales (`99-local.*`) que no se versionan en Git.
-
-- **Instalación segura:** Scripts de setup con backup automático de tus archivos `.bashrc` y `.zshrc`.
-
-- **Portable:** Diseñado para funcionar en diferentes distribuciones de Linux con mínimos ajustes.
-
-- **Reproducible:** Fácil de clonar y desplegar en nuevas máquinas.
-
----
-
 ## Instalación rápida
 
 1. Clona el repositorio:
