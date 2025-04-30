@@ -1,5 +1,8 @@
 # ⏳⚙️ Portable-Setup
 
+[ENGLISH](README_en.md)
+
+
 Entorno de configuración portable para Bash, Zsh y desarrollo avanzado en Linux.  Estructura modular, escalable y portable.
 
 
