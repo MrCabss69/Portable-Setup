@@ -50,19 +50,26 @@ Al iniciar sesión en tu terminal:
 
 ## Instalación rápida
 
-1. Clona el repositorio:
+Clona el repositorio:
 
 ```bash
 git clone https://github.com/MrCabss69/Portable-Setup.git
 cd Portable-Setup
 ```
 
+### Opción 1: Instalación manual
+
 2. Ejecuta los scripts de setup según el shell que uses:
 
 ```bash
-./setup_commons.sh   # Configuración común
-./setup_bashrc.sh    # Para Bash
-./setup_zshrc.sh     # Para Zsh
+./setup_tools.sh
+```
+
+O si lo prefieres, usa el makefile
+
+```bash
+make setup-bash
+make test
 ```
 
 3. Instala dependencias 
@@ -85,6 +92,25 @@ sudo pacman -Syu util-linux git bat fzf ripgrep fd tmux btop tldr git-delta lazy
 
 4. Reinicia / abre nuevo terminal para que los cambios tengan efecto.
 
+
+### Opción 2: Script maestro de configuración (setup_tools.sh)
+
+Además de los scripts individuales, dispones del script maestro setup_tools.sh ubicado en scripts/, que ofrece un menú interactivo para:
+
+    - Configurar commonrc.d
+
+    - Configurar bashrc.d
+
+    - Configurar zshrc.d
+
+    - Instalar herramientas recomendadas (paquetes clave)
+
+    - Salir
+
+Ejemplo de uso:
+```bash
+./scripts/setup_tools.sh
+```
 ---
 
 
@@ -110,6 +136,15 @@ Si algo falla, puedes agregar líneas de debug como:
 echo "Cargando $file"
 ```
 en `load_common.sh` o en los scripts de setup.
+
+Además, el proyecto incluye una carpeta de tests (tests/) para verificar automáticamente la integridad y funcionamiento de los scripts.
+```bash
+
+cd tests
+bash 01-test-estructura.sh
+bash 02-test-setup-bashrc.sh
+..
+```
 
 ---
 
@@ -188,9 +223,23 @@ journalctl --user -u mi-servicio.service
 
 ---
 
+
+### Bonus: Inicializador de proyectos CI/CD para Git
+
+Este repositorio incluye una plantilla completa para proyectos Python OSS con:
+
+- CI/CD preconfigurado (GitHub Actions)
+- Linters automáticos (flake8, black, isort)
+- Pre-commit hooks
+- Dependabot integrado
+
+📂 Ubicación: `config/repo-templates/python/`
+
+
+---
+
 ## 🗺️ Roadmap
 
-- Script interactivo `setup_tools.sh` para instalar herramientas clave.
 - Integración avanzada con `direnv`.
 - Ejemplos de configuración avanzada de `neovim` (`lazy.nvim`).
 - Instaladores tipo `Makefile` o `justfile`.
